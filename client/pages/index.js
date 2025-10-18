@@ -1,49 +1,3 @@
-// import { useState } from "react";
-// import Layout from "../components/Layout";
-// import Captcha from "../components/Captcha";
-// import { useRouter } from "next/router";
-
-// export default function Home() {
-//   const [regNo, setRegNo] = useState("");
-//   const [captcha, setCaptcha] = useState("");
-//   const [input, setInput] = useState("");
-//   const router = useRouter();
-
-//   function submit(e) {
-//     e.preventDefault();
-//     if (captcha !== input.trim().toUpperCase()) return alert("Captcha incorrect");
-//     router.push(`/verify/${encodeURIComponent(regNo.trim())}`);
-//   }
-
-//   return (
-//     <Layout title="Certificate Verification">
-//       <div className="mx-auto max-w-2xl">
-//         <div className="mb-6 text-center">
-//           <h1 className="mb-2 text-3xl font-bold">Verify Your Certificate</h1>
-//           <p className="text-gray-600">Enter your Registration / Certificate number and complete the captcha.</p>
-//         </div>
-
-//         <form onSubmit={submit} className="card grid gap-4">
-//           <input className="input" placeholder="Registration / Certificate No."
-//                  value={regNo} onChange={(e) => setRegNo(e.target.value)} required />
-//           <div className="grid gap-3 sm:grid-cols-2">
-//             <Captcha onChange={setCaptcha} />
-//             <input className="input" placeholder="Enter Captcha"
-//                    onChange={(e) => setInput(e.target.value)} />
-//           </div>
-//           <button className="btn btn-primary w-full" type="submit">Search</button>
-//         </form>
-//       </div>
-//     </Layout>
-//   );
-// }
-
-
-
-/////////////
-
-
-
 import { useRef, useState } from "react";
 import Layout from "../components/Layout";
 import Captcha from "../components/Captcha";
@@ -123,20 +77,21 @@ export default function Home({authed}) {
 
                 {/* Captcha row with icon refresh */}
                 <div className="grid grid-cols-1 sm:grid-cols-[auto_auto_1fr] gap-3 items-center">
-                  {/* Captcha Box */}
-                  <Captcha key={captchaKey} onChange={setCaptcha} />
+                  <div className="flex items-center gap-3">
+                    {/* Captcha Box */}
+                    <Captcha key={captchaKey} onChange={setCaptcha} />
 
-                  {/* Only Refresh Icon (no text) */}
-                  <button
-                    type="button"
-                    onClick={refreshCaptcha}
-                    aria-label="Refresh captcha"
-                    className="flex items-center justify-center h-11 w-11 border border-gray-300 rounded-lg hover:bg-gray-100 transition"
-                    title="Refresh Captcha"
-                  >
-                    <RotateCcw className={`w-5 h-5 text-gray-700 ${spinning ? "animate-spin" : ""}`} />
-                  </button>
-
+                    {/* Only Refresh Icon (no text) */}
+                    <button
+                      type="button"
+                      onClick={refreshCaptcha}
+                      aria-label="Refresh captcha"
+                      className="flex items-center justify-center h-11 w-11 border border-gray-300 rounded-lg hover:bg-gray-100 transition"
+                      title="Refresh Captcha"
+                    >
+                      <RotateCcw className={`w-5 h-5 text-gray-700 ${spinning ? "animate-spin" : ""}`} />
+                    </button>
+                  </div>
                   {/* Captcha Input */}
                   <input
                     className="w-full border border-gray-300 rounded-lg h-11 px-3 focus:ring-2 focus:ring-blue-600 outline-none"
