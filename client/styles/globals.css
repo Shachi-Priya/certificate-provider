@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+:root { --brand: #3b82f6; /* tailwind blue-500 */ }
+
+.btn { @apply inline-flex items-center justify-center rounded-xl px-4 py-2 font-medium shadow-sm hover:opacity-90 transition; }
+.btn-primary { @apply bg-blue-600 text-white; }
+.input { @apply w-full rounded-xl border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500; }
+.card { @apply rounded-2xl border border-gray-200 bg-white p-5 shadow-sm; }
+.page { @apply mx-auto max-w-5xl px-4 py-8; }
